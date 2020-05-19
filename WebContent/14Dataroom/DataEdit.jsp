@@ -44,6 +44,7 @@
 					var checkValidate2 = function(frm){
 						//무기명함수이다. 실행부는 위와 같음
 					}
+
 				</script>	
 						
 						
@@ -95,7 +96,7 @@
 						<th class="text-center"  
 							style="vertical-align:middle;">내용</th>
 						<td>
-							<textarea rows="10" name="content"
+							<textarea rows="10" name="content" 
 								class="form-control">${dto.content }</textarea>
 						</td>
 					</tr>

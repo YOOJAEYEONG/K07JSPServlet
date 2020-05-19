@@ -77,14 +77,9 @@ ListCtrl 서블릿에서 request영역에 저장한 ResultSet을 JSTL과 EL을 �
 							<tr>
 								<!-- totalCount:8, nowPage:null;0, pageSize:null;0,loop.index:0++ -->
 								<td class="text-center"><!--가상번호-->
-<<<<<<< HEAD
 								<!-- 페이지이동시 가상번호 변경적용을 위한 동적 로직 
 								각페이지에 따라 번호가 다르게 부여된다.-->
 									${map.totalCount - ((map.nowPage-1) * map.pageSize+loop.index) }
-=======
-									${map.totalCount - ((map.nowPage-1)*map.pageSize+loop.index) }<br>
-									${loop.index }
->>>>>>> refs/remotes/origin/master
 								</td>
 								<td>
 									<a href="../DataRoom/DataView?idx=${

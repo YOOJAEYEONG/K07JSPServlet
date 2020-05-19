@@ -80,14 +80,16 @@ public class PagingUtil {
 	public static String pagingBS4(int totalRecordCount,
 			int pageSize, int blockPage, int nowPage, String pageName) {
 		
+		System.out.println("PagingUtil>pagingBS4>pageName: "+pageName);
+		
 		String pagingStr = "";
 		
 		int totalPage = 
 				(int)(Math.ceil(((double)totalRecordCount/pageSize)));
-		System.err.println("totalPage: "+totalPage);
+		System.out.println("totalPage: "+totalPage);
 		
 		int intTemp = (((nowPage-1) / blockPage) * blockPage) +1;
-		System.err.println("intTemp: "+intTemp);
+		System.out.println("intTemp: "+intTemp);
 		
 		/*
 		변경전 페이지블록의 버튼이다.

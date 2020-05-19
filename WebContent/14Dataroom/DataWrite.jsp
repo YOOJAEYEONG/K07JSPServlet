@@ -44,6 +44,7 @@
 					var checkValidate2 = function(frm){
 						//무기명함수이다. 실행부는 위와 같음
 					}
+
 				</script>	
 						
 						
@@ -82,11 +83,17 @@
 					<tr>
 						<th class="text-center"  
 							style="vertical-align:middle;">내용</th>
-						<td>
-							<textarea rows="10" name="content"
+						<td style="height: 100px">
+							<textarea rows="300" name="content" id="ckeditor" style="margin-bottom:auto; height: 300px" 
 								class="form-control"></textarea>
+							<script>
+							    ClassicEditor
+							        .create( document.querySelector( '#ckeditor' ) )
+							        .catch( error => { console.error( error );  } );
+							</script>
 						</td>
 					</tr>
+							
 					<tr>
 						<th class="text-center"
 							style="vertical-align:middle;">첨부파일</th>
@@ -96,6 +103,7 @@
 					</tr>
 				</tbody>
 				</table>
+				
 			</div>
 			<div class="row mb-3">
 				<div class="col text-right">
