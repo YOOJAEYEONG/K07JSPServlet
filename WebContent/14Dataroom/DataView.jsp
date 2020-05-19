@@ -73,29 +73,18 @@
 				<div class="col-6">	
 				<!--작성용소스와 다름. 수업중 변경했음  -->
 					<button type="button" class="btn btn-secondary"
-<<<<<<< HEAD
 						onclick="location.href='./DataPassword?idx=${
 							param.idx}&mode=edit&nowPage=${
 							param.nowPage}&searchColumn=${
 							param.searchColumn}&searchWord=${
 							param.searchWord}';">수정하기</button>
-=======
-						onclick="location.href='./DataPassword?idx=${param.idx
-						}&mode=edit&nowPage=${param.nowPage }';">
-						수정하기</button>
->>>>>>> refs/remotes/origin/master
+
 					<button type="button" class="btn btn-success"
-<<<<<<< HEAD
 						onclick="location.href='../DataRoom/DataPassword?idx=${
 							dto.idx}&mode=delete&nowPage=${
 							param.nowPage }&searchColumn=${
 							param.searchColumn}&searchWord=${
 							param.searchWord}';">삭제하기</button>
-=======
-						onclick="location.href='../DataRoom/DataPassword?idx=${dto.idx
-						}&mode=delete&nowPage=${param.nowPage }';">
-						삭제하기</button>
->>>>>>> refs/remotes/origin/master
 				</div>
 				<div class="col-6 text-right pr-5">					
 					<button type="button" class="btn btn-warning"

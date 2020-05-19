@@ -103,11 +103,7 @@
 					<button type="submit" class="btn btn-danger">전송하기</button>
 					<button type="reset" class="btn btn-dark">Reset</button>
 					<button type="button" class="btn btn-warning" 
-<<<<<<< HEAD
-						onclick="location.href='../DataRoom/DataList';">리스트보기
-=======
 						onclick="location.href='./DataList?nowPage=${param.nowPage }';">리스트보기
->>>>>>> refs/remotes/origin/master
 					</button>
 				</div>
 				</form>
