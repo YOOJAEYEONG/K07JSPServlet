@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실명확인</title>
+
+      
+    <style>
+    button {
+    width: 90px;  height: 30px;
+    border: 1px solid; 
+    color: black;
+    background-color: white;
+    }
+    button:hover {
+        background-color: #e5e5e5;
+    }
+    table *{
+        padding: 5px;
+        margin: 10px;
+        font-size: 16px;
+        vertical-align: middle;
+    }
+    tr>td{
+        text-align: right;
+    }
+    </style> 
+</head>
+<body>
+	<form name="frm" >
+    <table >
+        <tr>
+            <td>주민번호</td>
+            <td>
+                <input type="text" maxlength="6" name="jumin1" size="6" required>
+                -
+                <input type="password" maxlength="7" name="jumin2" size="7" required>
+            </td>
+        </tr>
+        <tr>
+            <td>이름</td>
+            <td>
+                <input type="text" name="name" style="width: 225px"  >
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: right;">
+                <button type="button" onclick="checkJumin();" >다 음</button>
+            </td>
+        </tr>
+    </table>
+    </form>
+    
+    <script>
+    	function checkJumin() {
+
+    		var form = document.frm;
+   	
+            
+    		if(frm.jumin1.value.length == 6 && frm.jumin2.value.length == 7){
+    			console.log("조건문");
+	    		form.action = "./RegiStep02.html";
+	    		form.submit();
+    		}
+    		else{
+	    		console.log("거짓!");
+    			alert("주민번호가 맞지 않습니다.!");
+    			return ;
+    		}
+    	}
+    </script>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

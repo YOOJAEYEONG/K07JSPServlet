@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+
+    <style>
+        button {
+            width: 90px;  height: 30px;
+            border: 1px solid; 
+            color: black;
+            background-color: white;
+        }
+        button:hover {
+            background-color: #e5e5e5;
+        }
+        table *{
+            padding: 5px;
+            margin: 10px;
+            font-size: 16px;
+            vertical-align: middle;
+        }
+        tr>td{
+            text-align: right;
+        }
+        input[type='text'], input[type='password']{
+            width: 225px;
+        }
+
+        </style> 
+
+        <script>
+            function checkSubmit()    {  
+                var form = document.chk;
+                //JS에서는 contains()가 없기 때문에 indexOf()를 사용해야한다.
+                if(form.email.value.indexOf("@") == -1 ||
+                     form.email.value.indexOf(".") == -1){
+                    alert("이메일양식에 맞지않습니다.");
+                    form.email.focus();
+                    return false;
+                }
+                else {
+                    form.action="./RegiStep03.jsp";
+                    form.submit();
+                }
+  				 
+            }
+        </script>
+    </head>
+    <body>
+        
+        <form name="chk" >
+        <table >
+            <tr>
+                <td>아이디</td>
+                <td><input type="text" name="id" autofocus required ></td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="password" name="pw" required ></td>
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td><input type="text" name="email" required ></td>
+            </tr>
+            <tr>
+                <td>성별</td>
+                <td >
+                    <span style="text-align: left;" >
+                        <label><input type="radio" name="sex" value="남자" checked="checked">남자</label> 
+                        <label><input type="radio" name="sex" value="여자">여자</label> 
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: right;">
+                    <button type="button" value="before" onclick="window.location.href='./RegiStep01.html';" >이 전</button>
+                    <button type="button" onclick="checkSubmit();" >다 음</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

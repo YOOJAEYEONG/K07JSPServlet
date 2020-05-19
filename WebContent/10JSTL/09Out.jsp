@@ -1,0 +1,113 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>09Out</title>
+</head>
+<body>
+	
+	
+	<h3>Out 태그</h3>
+	<c:set var="htmlStr">
+		<h3>h3태그로 감싼문자열</h3>
+	</c:set>
+	
+	
+	
+	<!--  
+	기본값이거나 true일때는 HTML이 해석되지 않고 태그까지 그대로 출력된다.  
+	JS의 innerText()와 동일하다.
+	-->
+	<h3>escapeXml = true(기본값)일때</h3>
+	<c:out value="${htmlStr }" escapeXml="true"/>
+	<br>
+	
+	
+	<!--  
+	false일때는 HTML이 해석되어져서 화면에 출력된다. 
+	JS의 innerHTML()과 동일하다
+	-->
+	<h3>escapeXml = false 일때</h3>
+	<c:out value="${htmlStr }" escapeXml="false"/>
+	<br>
+	
+	
+	\${htmlStr } : ${htmlStr }
+	
+	
+	
+	
+	<!--  
+	-out 태그에 value속성의 값이 null일때는 default 속성에 지정한 값이 출력된다.
+	-단, 값이 빈 문자열("")인경우는 값이 있는것으로 간주되어 default속성에 
+		지정한 값이 출력되지 않는다.
+	-->
+	
+	<h3>default 속성</h3> 
+	<h4>값이 빈 문자열 : 값이 있는경우에 해당</h4>
+	출력 : <c:out value="" default="값이 빈 문자열"/>
+	
+	<h4>값이 null인 경우열 : 값이 없는 경우에 해당</h4>
+	출력 : <c:out value="${null }" default="값이 null"/>
+	
+	
+	
+	
+	<!--  
+	-파라미터로 전달되는 nowPage가 없는 경우에는 1로 표현되고,
+		있는경우 해당파라미터값을 가져와서 페이지를 설정한다.
+	
+	-->
+	<h3>페이지 링크에 응용하기</h3>
+	<c:url value="/08Board2/BoardList.jsp?nowPage="/><c:out value=
+		"${null }" default="1"/>
+	<hr />
+	<!--주의 ] 한줄로 붙여서 작성하세요. 줄바꿈하면 공백이 들어갑니다.  -->
+	
+	<!--처음 진입한 게시판 페이지라면 아직 nowPage 파라미터값은 설정되지 
+	않은 상태이다 , 즉 null 일때 디폴트값으로 1을 적용해주는것이다-->
+	<a href="<c:url value=
+		"/08Board2/BoardList.jsp?nowPage=" /><c:out value=
+			"${param.nowPage }" default="1" />">회원제게시판 리스트 바로가기</a>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>

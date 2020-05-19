@@ -1,0 +1,224 @@
+
+<%@page import="java.util.Vector"%>
+<%@page import="java.util.Collection"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>OperatorEL</title>
+</head>
+<body>
+	<h2>EL의 연산자들</h2>
+	
+	<h3>EL에서의 null연산</h3>
+
+	<%
+	/*
+	Java코드에서는 null과 연산을 수행할 수 없다.
+	하지만 EL에서는 null을 0으로 간주하여 계산한다.
+	따라서 NullPointException이 발생하지 않는다.
+	*/
+	//int a = null + 10; //<-null과의 연산이므로 에러발생됨
+	%>
+	\${null+10} : ${null+10}<br> <!--결과 : 10  -->
+	<!--
+	최초 페이지를 실행했을때는 파라미터가 없으므로 0간주되어 계산됨
+	만약 
+		해당페이지?myNumber=20인 경우 결과30 출력됨
+		해당페이지?myNumber=  인 경우 0으로 간주되어 10 출력됨
+		해당페이지?myNumber=삼 인 경우 문자는 숫자로 변경 불가하므로 에러발생됨
+	  -->
+	\${param.myNumber+10 } :  ${param.myNumber+10 }<br>
+	
+	<br>
+	<!--
+	myNum(Null) 값과 비교연산에서는 false를 반환한다.
+	산술연산에서는 0으로 간주한 후 연산을 진행하지만
+	비교연산은 null과의 비교자체가 불가능하기때문이다.	
+	-->
+	
+	
+	\${param.myNum>10 } : ${param.myNum>10 } <br>
+	\${param.myNum<10 } : ${param.myNum<10 } <br>
+	<br>
+	
+	<h3>JSTL로 EL에서 사용할 변수 선언</h3>
+	
+	<%
+	/*
+	EL에서는 JSP에서 선언한 변수는 직접사용할 수 없다. 값은 출력되지 않고
+	null로 인식하게 된다.
+	JSP의 변수를 EL에서 사용할 수없는 이유는 EL은 4가지 영역에 저장된 속성들만
+	사용하기 때문임. JSTL도 동일한 특성을 가지고 있다.
+	*/
+	
+	String varScriptLet = "스크립트렛 안에서 변수선언";
+	
+	%>
+	
+	<!--null 값으로 인식되므로 0으로 간주된다. 0+100=>100출력  -->
+	\${varScriptLet+100 } : ${varScriptLet+100 }<br>
+	
+	<!--
+	JSP코드에서 선언한 변수를 EL에서 사용해야할 경우에는 JSTL의 set태그를 
+	이용해서 변수를 선언한다. 
+	JSP에서 즉시 선언하려면 영역에 저장한다.
+	-->
+	<!--scope설정이 없으면 자동으로 page영역으로 설정된다. -->
+	<c:set var="elVar" value="<%=varScriptLet %>" />
+	\${elVar } : ${elVar }
+	
+	<h3>EL변수에 값 할당</h3>
+	
+	<c:set var="fnum" value="9" />
+	<c:set var="snum" value="5" />
+	<!--
+	Tomcat8.0부터 EL에서 변수할당이 가능해졌다. 하지만 개발사에서는
+	실제 서비스할 웹서버의 버전을 확인후 사용여부를 결정한다.
+	EL은 전통적으로 값을 표현(출력)하는 용도로 사용되어 졌으므로
+	표현용으로만 사용하는것이 좋다.
+	-->
+	\${fnum=99 } : ${fnum=99 } <!-- 99로 재할당되어 99출력  -->
+	
+	
+	
+	
+	
+	<!--  
+	EL에서는 정수와 정수를 연산하더라도 '실수'의 결과가 나올수있다. 
+	즉, 자동형변환되어 출력된다.
+	
+	/연산자대신 div를 사용할 수있다.
+	%연산자대신 mod를 사용할 수있다.
+	-->
+	<h3>EL의 산술연산자</h3>
+	
+	\${fnum+snum } : ${fnum+snum } 			<br>
+	\${fnum/snum } : ${fnum/snum } 			<br>
+	\${fnum div snum } : ${fnum div snum } 	<br>
+	
+	\${fnum % snum } : ${fnum % snum } 		<br>
+	\${fnum mod snum } : ${fnum mod snum } 	<br>
+	
+	
+	
+	<!--
+	EL에서 +연산자는 덧셈의 용도로만 사용된다.
+	문자열을 연결하기휘한 용도로는 사용할 수 없다.
+	-->
+	\${"100"+100 } : ${"100"+100 } 			<br>
+	\${"Hello"+"EL" } : ${"Hello"+="EL" } 	<br>
+	\${"Hello"+"EL" } : \${"Hello"+"EL" }[에러]	<br>
+	\${"일" + 2 } : \${"일" + 2 } 			<br>
+	
+	
+	
+	
+	
+	<!--  
+	EL에서는 비교연산자를 이용한 비교시 변수의 값을 모두 문자열로 인식하여
+	String클래스의 compareTo()와 같은 방식으로 비교한다.
+	즉, 첫번째문자부터 하나씩 비교해 나간다.
+	단, 실제 숫자비교시에는 일반적인 숫자비교가 이루어진다.
+	-->
+	
+	<h3>EL의 비교연산자</h3>
+	<c:set var="fnum" value="100" />
+	<c:set var="snum" value="90" />
+	<ul>
+		<!-- 문자열비교됨 "100" 과 "90" -->
+		<li>\${fnum > snum } : ${fnum > snum }</li><!--false-->
+		<!-- 숫자비교됨 -->
+		<li>\${100 > 90 } : ${100 > 90 }</li><!--true-->
+		
+		
+		<!--  
+		JAVA에서는 문자열을 비교할때 equals()를 통해 비교하지만 
+		EL에서는 ==으로 비교한다.
+		-->
+		<li>\${"JAVA"=='JAVA' } : ${"JAVA"=='JAVA'}</li>
+		<li>\${"Java"=='JAVA' } : ${"Java"eq'JAVA'}</li>
+	</ul>
+	
+	<h3>EL의 논리 연산자</h3>
+	
+	<ul>
+		<li>\${5>=5 && 10 !=10 } : ${5 >= 5 && 10 != 10} </li><!--거짓-->
+		<li>\${5>6 || 10 < 100 } : ${5 gt 6 or 10 lt 100} </li><!--참-->
+	</ul>
+	
+	
+	
+	
+	<h3>EL의  삼항연산자</h3>
+	\${10 gt 9 ? "참이다" : "거짓이다"} :
+		${10 gt 9 ? "참이다" : "거짓이다"}
+		
+		
+		
+		
+		
+	<!--  
+	null이거나 ""(빈문자열)일때 
+		배열인 경우 길이가 0일때
+		컬렉션인경우 size가 0일때
+		true를 반환하는 연산자이다.
+	
+	-->	
+	<h3>EL의 empty 연산자 : null일때 true를 반환하는 연산자</h3>
+	
+	<%
+	String nullStr = null;
+	String emptyStr = "";
+	Integer[] lengthZero = new Integer[0];
+	Collection sizeZero = new Vector();
+	%>
+	<c:set var="elnullStr" value="<%=nullStr %>"/>
+	<c:set var="elemptyStr" value="<%=emptyStr %>"/>
+	<c:set var="ellengthZero" value="<%=lengthZero %>"/>
+	<c:set var="elziseZero" value="<%=sizeZero %>"/>
+	
+	<ul>
+		<li>\${empty elnullStr } : ${empty elnullStr }</li>
+		<li>\${not empty elemptyStr } : ${not empty elemptyStr }</li>
+		<li>${empty ellengthZero ? 
+			"배열크기가 0임" : "배열크기가 0아님 " } </li>
+		<li>${not empty elsizeZero ? 
+			"컬렉션에 저장된 객체 있음" : "컬렉션에 저장된 객체 없음 " } </li>
+	</ul>
+	
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
