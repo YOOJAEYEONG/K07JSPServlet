@@ -6,6 +6,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <jsp:include page="../common/boardHead.jsp" />
@@ -83,14 +84,10 @@
 					<tr>
 						<th class="text-center"  
 							style="vertical-align:middle;">내용</th>
-						<td style="height: 100px">
-							<textarea rows="300" name="content" id="ckeditor" style="margin-bottom:auto; height: 300px" 
+						<td>
+							<textarea rows="1" name="content"   
 								class="form-control"></textarea>
-							<script>
-							    ClassicEditor
-							        .create( document.querySelector( '#ckeditor' ) )
-							        .catch( error => { console.error( error );  } );
-							</script>
+								 
 						</td>
 					</tr>
 							

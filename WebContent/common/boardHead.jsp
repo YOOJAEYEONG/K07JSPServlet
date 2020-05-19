@@ -12,11 +12,6 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	
-	<!-- CKEditor4 CDN -->
-	<!-- <script src="https://cdn.ckeditor.com/4.14.0/basic/ckeditor.js"></script> -->
-	
-	<!-- CKEditor5 CDN -->
-	<script src="https://cdn.ckeditor.com/ckeditor5/19.0.0/classic/ckeditor.js"></script>
 	
 
 
