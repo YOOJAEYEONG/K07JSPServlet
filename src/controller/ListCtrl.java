@@ -29,15 +29,12 @@ public class ListCtrl extends HttpServlet{
 		
 		String searchColumn = req.getParameter("searchColumn");
 		String searchWord = req.getParameter("searchWord");
-<<<<<<< HEAD
-		if(		!(searchWord==null || searchWord.equals(""))	) {
-			
-=======
 		
 		System.out.println("ListCtrl>searchColumn:"+searchColumn);//null
 		System.out.println("ListCtrl>searchWord:"+searchWord);//null
-		if(searchWord!=null) {
->>>>>>> refs/remotes/origin/master
+
+		if(		!(searchWord==null || searchWord.equals(""))	) {
+	
 			//검색어가 있는경우 파라미터를 Map에 저장 및 쿼리스트링 저장
 			addQueryString =
 				String.format(
