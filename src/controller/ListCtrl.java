@@ -10,7 +10,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import sun.awt.AWTAccessor.ToolkitAccessor;
 import util.PagingUtil;
 
 public class ListCtrl extends HttpServlet{
