@@ -22,7 +22,7 @@ window.onload = function(){
 	
 	chat_id = document.getElementById('chat_id').value;
 	
-	webSocket = new WebSocket('ws://localhost:8282/K07JSPServlet/ChatServer02');
+	webSocket = new WebSocket('ws://localhost:8081/K07JSPServlet/ChatServer02');
 	webSocket.onopen = function(event) {
 		wsOpen(event);
 	};
@@ -53,7 +53,7 @@ function wsMessage(event) {
     	if (content.match("/")) {
     		//해당 아이디(닉네임) 에게만 디스플레이 한다.
     		if (content.match(("/" + chat_id))) {	    			 
-				var temp = content.replace(("/" + chat_id), "[귓속말]");
+				var temp = content.replace(("/" + chat_id), "[귓속말]:");
     			msg = makeBalloon(sender, temp);
     			messageWindow.innerHTML += msg ;
     			//스크롤바 처리

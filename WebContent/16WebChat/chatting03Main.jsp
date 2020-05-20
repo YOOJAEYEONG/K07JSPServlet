@@ -19,7 +19,7 @@
 			return; 
 		}
 		window.open("chatting03.jsp?chat_id="+id.value, 
-				"",
+				"창이름",
 				"width=500,height=700");
 		id.value="";
 	}

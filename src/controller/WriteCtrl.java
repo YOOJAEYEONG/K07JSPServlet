@@ -62,8 +62,12 @@ public class WriteCtrl extends HttpServlet{
 			String title = mr.getParameter("title");
 			String pass = mr.getParameter("pass");
 			String content = mr.getParameter("content");
-			//서버에 저장된 실제파일벙을 가져온다.
+			//서버에 저장된 실제파일명을 가져온다.
 			String attachedfile = mr.getFilesystemName("attachedfile");
+			
+			System.out.println("getFilesystemName()=>"+attachedfile);//외계인.jpeg
+			
+			
 			
 			//DTO객체에 폼값을 저장한다.
 			DataroomDTO dto = new DataroomDTO();
