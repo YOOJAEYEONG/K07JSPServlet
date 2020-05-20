@@ -18,10 +18,12 @@ mode값에 따라 수정 혹은 삭제 페이지로 이동한다.
 
 <c:choose>
 	<c:when test="${param.mode == 'edit' }">
-		<c:set var="moveUrl" value="/DataRoom/DataEdit?idx=${param.idx }&nowPage=${requestScope.nowPage }"/>
+		<c:set var="moveUrl" value="/DataRoom/DataEdit?idx=${
+		param.idx }&nowPage=${requestScope.nowPage }"/>
 	</c:when>
 	<c:otherwise>
-		<c:set var="moveUrl" value="/DataRoom/DataDelete?idx=${param.idx }&nowPage=${nowPage }"/>
+		<c:set var="moveUrl" value="/DataRoom/DataDelete?idx=${
+		param.idx }&nowPage=${nowPage }"/>
 	</c:otherwise>
 </c:choose>
 
