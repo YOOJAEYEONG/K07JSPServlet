@@ -33,7 +33,7 @@ HTML, CSS, JS, JSP, JQuery 등
 	지정했던 요청명을 사용한다.
 	*/
 		//대화 입력창 & 출력창의 DOM을 가져온다.
-		var webSocket = new WebSocket("ws://localhost:8282/K07JSPServlet/ChatServer01");
+		var webSocket = new WebSocket("ws://localhost:8081/K07JSPServlet/ChatServer01");
 
 		var messageWindow = document.getElementById("messageWindow");
 		messageWindow.value = "";

@@ -12,7 +12,7 @@ import javax.websocket.server.ServerEndpoint;
 
 
 //웹소켓 서버의 요청명 지정(http://호스트:포트/컨텍스트루트/ChatServer01)
-//@ServerEndpoint("/ChatServer01")
+@ServerEndpoint("/ChatServer01")
 public class ChatServer01 {
 
 	
