@@ -17,11 +17,14 @@
     <input type="text" id="chat_id"
 	value="<%=session.getId().substring(0, 10)%>"
 	style="border:1px dotted red; width:200px;" />
-	<%out.print(session.getId()); %>	 
+    
+	<%out.print(session.getId()); %><br>
+    
+    
 <fieldset style="width:350px; text-align:center;">
 	<legend>채팅창</legend>	
 	<!-- 대화입력창 -->	
-	<input type="text" id="inputMessage" style="width:300px; margin-bottom:5px;"/>
+	<input type="text" id="inputMessage" style="width:300px; margin-bottom:5px;" />
 	<br />
 	<input type="button" onclick="sendMessage();" value="보내기"/>
 	<input type="button" onclick="disconnect();" value="채팅종료"/>	
@@ -39,16 +42,17 @@
 	//접속자ID를 가져오는 부분(현재는 랜덤하게 생성되는 세션아이디)
     var chat_id = document.getElementById("chat_id").value;
     //웹소켓 객체생성(=웹소켓 서버에 접속)
-    var webSocket = new WebSocket('ws://localhost:8081/K07JSPServlet/ChatServer02');
+	var webSocket = new WebSocket('ws://localhost:8081/K07JSPServlet/ChatServer02');
+    //localhost관련fail을 이유로 서버시작 실패:vscode의 톰캣서버삭제>재시작후 정상작동함
+    
     /*
     웹소켓 연결후 메세지전송, 에러발생등은 모두 이벤트를 통해 함수를 호출한다.
-    이때 이벤트 객체개 전달된다.
+    이때 이벤트 객체가 전달된다.
     */
     webSocket.onopen = function (event) {
         wsOpen(event);//연결되었을때
     };
     webSocket.onmessage = function (event) {
-        
         wsMessage(event);//메세지가 전송될때
     };
     webSocket.onclose = function (event) {
@@ -57,6 +61,8 @@
     webSocket.onerror = function (event) {
         wsError(event);//에러가 발생했을때
     };
+
+
 
 
     function wsOpen(event) {
@@ -70,12 +76,12 @@
     }
     //웹소켓 서버가 메세지를 받은후 클라이언트에게 echo할때
     function wsMessage(event){
-    	console.log(typeof(event));//1번클라이언트에서 보내는 메세지는 출력안됨(?)
+    	
         //메세지를 |구분자로 split(분리)한다.
         var message = event.data.split("|");
         //메세지의 첫번째 부분은 전송한사람의 아이디
         var sender = message[0];
-        console.log(message[1]);
+        
         //두번째 부분은 메세지
         var content = message[1];
         if(content == ""){

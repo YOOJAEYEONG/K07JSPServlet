@@ -16,7 +16,7 @@ import javax.websocket.server.ServerEndpoint;
 public class ChatServer02 {
 
 	/*
-	-해당 set 컬렉션은 클라이언트가 접속할때마다 세션ID를 저자어하므로
+	-해당 set 컬렉션은 클라이언트가 접속할때마다 세션ID를 저장하므로
 		static으로 선언된다.
 	- 접속한 웹브라우저가 웹소켓을 지원해야하며, 웹브라우저를 닫으면 
 		onClose가 호출된다.
@@ -26,10 +26,23 @@ public class ChatServer02 {
 	
 	private static Set<Session> clients = 
 			Collections.synchronizedSet(new HashSet<Session>());
-			
+			//Collections.synchronizedMap(map)
+			//Collections.synchronizedList(list)
+			//Vector화 같이 기본적으로 add()에서 동기화처리하지 않는 컬렉션들은
+			//직접 동기화처리해줄수있다.
+	
+	
 	//클라이언트가 접속했을때 세션아이디를 추가한다.
 	@OnOpen
 	public void onOpen(Session session) {
+		
+		/*
+		궁굼증:세션을 인자로 호출되는 함수는 어디인가?
+		몇몇 예제에서도 onopen이벤트시 호출되는 함수에 세션을 매개변수로 받아 바로사용했다.
+		
+		@해당 어노테이션과 함께
+		method() 형태로 또는  method(Session session) 형태로 사용했다.
+		 */
 		clients.add(session);
 		System.out.println(session);
 		System.out.println("연결되었습니다.");
@@ -49,7 +62,8 @@ public class ChatServer02 {
 	//클라이언트가 보낸 메세지가 도착했을때
 	@OnMessage
 	public void onMessage(String message, Session session) throws IOException {
-		System.out.println(session.getId()+" : "+ message);
+		//session.getId()는 0부터 시작했다.
+		System.out.println(session.getId()+" :: "+ message);
 		
 		//동기화블럭 으로 공유객체에 대한 동시 접근을 막는다.
 		synchronized (clients) {

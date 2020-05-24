@@ -36,7 +36,45 @@
 	&emsp;
 	아이디 : <input type="text" id="chat_id" />
 	<button type="button" onclick="chatWin05();">채팅창열기</button>
+	
+	
+<!--
+webSocket을 사용하여 채팅룸에서 사진 비디오 전달하기
+https://stackoverflow.com/questions/34850386/socket-io-chat-app-that-can-also-send-image-and-even-file/34850616
+  -->
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -52,10 +52,17 @@ HTML, CSS, JS, JSP, JQuery 등
 		//에러발생시 호출
 		webSocket.onerror = function(message){
 			messageWindow.value += "채팅중 에러발생..\n";
+			
 		};
 
 		//메세지가 서버에서전송되었을때 호출
 		webSocket.onmessage = function(message){
+			/*
+			메세지가 수신되면 "message" 이벤트가 onmessage 함수로 전달된다. 
+			수신된 데이터를 매개변수.data를통해 받아볼수있다.
+			alert((message));//[object MessageEvent] =>	MessageEvent를 통해 전달되는 Object형 데이터이다.
+			alert(typeof(message));//[object] 	
+			*/
 			messageWindow.value += "서버에서 수신 =>"+message.data+"\n";
 		};
 

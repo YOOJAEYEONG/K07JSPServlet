@@ -20,7 +20,7 @@
 		}
 		window.open("chatting03.jsp?chat_id="+id.value, 
 				"창이름",
-				"width=500,height=700");
+				"width=500,height=400");
 		id.value="";
 	}
 	</script>
@@ -28,7 +28,11 @@
 	아이디 : <input type="text" id="chat_id" />
 	<button type="button" onclick="chatWin03();">채팅창열기</button>
     
+<!-- 
 
+
+
+ -->
 
 
 
