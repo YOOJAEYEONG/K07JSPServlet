@@ -22,7 +22,7 @@ public class ViewCtrl extends HttpServlet{
 		//게시물의 일련번호를 파라미터로 받아온다.
 		String idx = req.getParameter("idx");
 		
-		
+		//자바빈
 		DataroomDAO dao = new DataroomDAO();
 		
 		//일련번호를 통해 게시물을 가져오고, 조회수를 증가시킨다.

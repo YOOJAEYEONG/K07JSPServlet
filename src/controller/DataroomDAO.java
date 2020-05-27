@@ -44,9 +44,9 @@ public class DataroomDAO {
 			//위 lookup을 아래 1줄로 병합할 수 있다.
 			DataSource source = 
 					(DataSource)initCtx.lookup("java:comp/env/jdbc/myoracle");
-			
-			
+	
 			con = source.getConnection();
+			if(con!=null)	System.out.println("DBCP연결됨");
 		} catch (Exception e) {
 			System.out.println("DataroomDAO:DBCP연결실패");
 			e.printStackTrace();
@@ -62,7 +62,7 @@ public class DataroomDAO {
 			if(psmt!=null) psmt.close();
 			if(con!=null) con.close();
 		} catch (Exception e) {
-			System.out.println("자원반납예외발생");
+			System.out.println("DataroomDAO:자원반납예외발생");
 			e.printStackTrace();
 		}
 	}
@@ -178,17 +178,15 @@ public class DataroomDAO {
 			if(rs.next()) {
 				dto = new DataroomDTO();
 				
-				dto.setIdx(rs.getString(1));
-				dto.setName(rs.getString(2));
-				dto.setTitle(rs.getString(3));
-				dto.setContent(rs.getString(4));
+				dto.setIdx(		rs.getString(1));
+				dto.setName(	rs.getString(2));
+				dto.setTitle(	rs.getString(3));
+				dto.setContent(	rs.getString(4));
 				dto.setPostdate(rs.getDate(5));
-				dto.setAttachedfile(rs.getString(6));
-				dto.setDowncount(rs.getInt(7));
-				dto.setPass(rs.getString(8));
-				dto.setVisitcount(rs.getInt(9));
-				
-				
+				dto.setAttachedfile(	rs.getString(6));
+				dto.setDowncount(		rs.getInt(7));
+				dto.setPass(			rs.getString(8));
+				dto.setVisitcount(		rs.getInt(9));
 			}
 			
 			
