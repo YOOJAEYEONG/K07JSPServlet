@@ -48,7 +48,7 @@ DBCP(Database Connection Pool : 커넥션풀)
 	
 	String conStr = "";
 	if(con!=null)	conStr = "<h2>DBCP연결성공</h2>";
-	else   conStr = "<h2>DBCP연결실패</h2>";
+	else   			conStr = "<h2>DBCP연결실패</h2>";
 	out.print(conStr);
 	%>
 </body>

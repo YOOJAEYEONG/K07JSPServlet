@@ -90,7 +90,7 @@ public class ListCtrl extends HttpServlet{
 		//테이블의 전체 ResultSet을 가져옴(페이지처리 없이)
 //		List<DataroomDTO> lists = dao.selectList(param);//변경전
 		
-		//테이블에서 해당페이지 구간의 ResultSet을 가져옴.(페이지처리0)
+		//테이블에서 해당페이지 구간의 ResultSet을 가져옴.(페이지처리됨)
 		List<DataroomDTO> lists = dao.selectListPage(param);//변경후
 		
 		

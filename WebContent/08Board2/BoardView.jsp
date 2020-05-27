@@ -17,6 +17,9 @@ if(searchWord!=null){
 }
 //3페이지에서 상세보기했다면 리스트로 돌아갈때도 3페이지로 가야한다. 
 String nowPage = request.getParameter("nowPage");
+//nowPage가 없으면 초기화 시켜준다.
+if(nowPage==null || nowPage.equals(""))
+	nowPage="1";
 queryStr += "&nowPage="+nowPage;
 
 System.out.println("queryStr>"+queryStr);

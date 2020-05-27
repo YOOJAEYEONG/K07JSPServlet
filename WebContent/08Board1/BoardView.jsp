@@ -1,4 +1,3 @@
-<%@page import="com.sun.xml.internal.txw2.Document"%>
 <%@page import="model.BbsDTO"%>
 <%@page import="model.BbsDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
