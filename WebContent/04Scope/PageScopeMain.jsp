@@ -97,10 +97,10 @@ pageContext.setAttribute("pageMember2",
 	<br />
 	
 	<%--
-	외부파일으 인클루드하는 경우 외부문서는 원본그대로 현재문서에 포함된후
+	외부파일을 인클루드하는 경우 외부문서는 원본그대로 현재문서에 포함된후
 	컴파일되므로 include 지시어를 사용하는 경우 같은 페이지로 취급되어
 	페이지영역이 공유된다.
-	 --%>
+	--%>
 	<%@ include file="PageInclude.jsp" %>
 	
 </body>

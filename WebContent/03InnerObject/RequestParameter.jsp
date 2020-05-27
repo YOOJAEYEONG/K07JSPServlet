@@ -95,7 +95,7 @@
 		hasMoreElements() : 객체에 남은 폼값이 있는지 검사
 		nextElement() : 받은 폼값중 다음 폼의 이름을 반환
 	*/
-	Enumeration names = request.getParameterNames();
+	Enumeration<String> names = request.getParameterNames();
 		
 	
 	while(names.hasMoreElements() ){
