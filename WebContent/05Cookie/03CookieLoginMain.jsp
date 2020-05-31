@@ -35,7 +35,7 @@ if(cookies!=null){
 	//세션영역에 저장된 아이디 속성이 없다면 로그인폼을 출력한다.
 	if(session.getAttribute("USER_ID")==null){
 	%>
-	<form action="CookieLoginProc.jsp" method="post">
+	<form action="03CookieLoginProc.jsp" method="post">
 	<table border="1">
   		<tr>
   			<td>아이디</td>
@@ -85,7 +85,7 @@ if(cookies!=null){
 					즐거운시간 보내세요
 					<br>
 					<input type="button" value="로그아웃" 
-						onclick="location.href='CookieLogoutProc.jsp';"/>
+						onclick="location.href='03CookieLogoutProc.jsp';"/>
 				</td>
 			</tr>
 		</table>

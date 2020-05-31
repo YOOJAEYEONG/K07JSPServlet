@@ -8,7 +8,7 @@
 session.invalidate();
 
 //페이지 이동. JSP코드가 우선순위가 높으므로 아래 JS코드는 무시된다.
-response.sendRedirect("CookieLoginMain.jsp");
+response.sendRedirect("03CookieLoginMain.jsp");
 %>
 <!--
 JSP영역과 JS영역이 있을경우 JSP가 우선순위가 높기 때문에 아래 실행문은 실행되지 않는다.
@@ -16,7 +16,7 @@ JSP영역과 JS영역이 있을경우 JSP가 우선순위가 높기 때문에 �
 -->
 <script>
 	alert('로그아웃되었습니다.');
-	location.href="CookieLoginMain.jsp";
+	location.href="03CookieLoginMain.jsp";
 </script>
 
 

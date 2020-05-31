@@ -91,14 +91,7 @@ public class PagingUtil {
 		int intTemp = (((nowPage-1) / blockPage) * blockPage) +1;
 		System.out.println("intTemp: "+intTemp);
 		
-		/*
-		변경전 페이지블록의 버튼이다.
-			<li class="page-item">
-				<a href="#" class="page-link">
-					<i class="fas fa-angle-double-left"></i>
-				</a>
-			</li>
-		 */
+		
 		if(intTemp != 1) {
 
 			//첫패이지로

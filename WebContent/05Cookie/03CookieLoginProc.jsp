@@ -38,13 +38,13 @@ if("kosmo".equals(userid)&& "1234".equals(userpw)){
 		
 	}
 	//로그인과 쿠키생성이 완료되면 기존 로그인페이지로 이동한다.
-	response.sendRedirect("CookieLoginMain.jsp");
+	response.sendRedirect("03CookieLoginMain.jsp");
 }
 else {
 	//로그인에 실패하면 리퀘스트영역에 속성을 저장한 후
 	request.setAttribute("ERROR_MSG", "회원이 아닙니다.");
 	//로그인 페이지로 포워드(전달) 한다.
-	request.getRequestDispatcher("CookieLoginMain.jsp")
+	request.getRequestDispatcher("03CookieLoginMain.jsp")
 		.forward(request, response);
 	//포워드한 페이지는 리퀘스트영역이 공유되므로 위에 저장한 속성을 읽어올 수 있다.
 }

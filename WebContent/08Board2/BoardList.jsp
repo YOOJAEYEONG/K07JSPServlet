@@ -106,6 +106,7 @@ dao.close();
 <jsp:include page="../common/boardHead.jsp" />
 <body>
 <div class="container">
+	<!--액션태그(req영역은 공유됨)  -->
 	<jsp:include page="../common/boardTop.jsp" />
 	<div class="row">		
 		<jsp:include page="../common/boardLeft.jsp"/>

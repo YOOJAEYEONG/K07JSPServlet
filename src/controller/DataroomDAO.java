@@ -308,14 +308,13 @@ public class DataroomDAO {
 				+ "		) Tb"
 				+ ")"
 				+ "WHERE rNum BETWEEN ? AND ?";
-		System.out.println("쿼리문:"+sql);
 		
+		System.out.println("selectListPage()쿼리문:"+sql);
 		
 		try {
 			psmt = con.prepareStatement(sql);
 			psmt.setInt(1, Integer.parseInt(map.get("start").toString()));
 			psmt.setInt(2, Integer.parseInt(map.get("end").toString()));
-			
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				DataroomDTO dto = new DataroomDTO();
