@@ -50,10 +50,10 @@
 						
 						
 			<div class="row mt-3 mr-1">
-				<table class="table table-bordered table-striped">
 				<!--파일업로드를 위해서는 enctype을 선언해야한다. 안하면 전송안됨-->
 				<form action="../DataRoom/DataWrite" name="writeFrm" method="post" 
 					onsubmit="return checkValidate(this);" enctype="multipart/form-data">
+				<table class="table table-bordered table-striped">
 				<colgroup>
 					<col width="20%"/>
 					<col width="*"/>
@@ -111,8 +111,8 @@
 						onclick="location.href='./DataList?nowPage=${param.nowPage }';">리스트보기
 					</button>
 				</div>
-				</form>
 			</div>
+			</form>
 		</div>
 	</div>
 	<jsp:include page="../common/boardBottom.jsp" />
