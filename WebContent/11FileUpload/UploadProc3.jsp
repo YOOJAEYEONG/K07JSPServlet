@@ -63,15 +63,15 @@
 		만약 예외가 발생한다면 주로 최대용량 초과 혹은 디렉토리 경로가 주 원인임.
 		*/
 		mr = new MultipartRequest(request, saveDirectory,
-				maxPostSize, encoding, policy);
+		maxPostSize, encoding, policy);
 		
 		/*  
-			서버에 저장된 파일명 변경하기
-			: 객체를 생성함과 동시에 업로드는 완료되므로 이미 저장된
-			파일에 대해 파일명을 변경한다.
-			이유는 한글이나 다른 언어 즉, 유니코드로 구성된 파일명은
-			서버에서 문제가 될 소지가 있으므로 숫자 혹은 영문으로 
-			변경하는것이 좋다.
+	서버에 저장된 파일명 변경하기
+	: 객체를 생성함과 동시에 업로드는 완료되므로 이미 저장된
+	파일에 대해 파일명을 변경한다.
+	이유는 한글이나 다른 언어 즉, 유니코드로 구성된 파일명은
+	서버에서 문제가 될 소지가 있으므로 숫자 혹은 영문으로 
+	변경하는것이 좋다.
 		*/
 		//추가부분 start//////////////////////////////////
 		//서버에 저장된 파일명 가져오기
@@ -95,8 +95,8 @@
 		/*
 		서버의 물리적경로와 생성된 파일명을 통해 File객체를 생성한다.
 		**파일객체.separator : 파일경로를 나타낼때 윈도우는 역슬레쉬(\)
-			리눅스는 슬레쉬(/)를 사용하게 되는데 OS에 따라 구분기호를
-			자동으로 변환하여 설정해주는 역할을 한다.
+	리눅스는 슬레쉬(/)를 사용하게 되는데 OS에 따라 구분기호를
+	자동으로 변환하여 설정해주는 역할을 한다.
 		*/
 		oldFile = new File(saveDirectory+File.separator+fileName);
 		newFile = new File(saveDirectory+File.separator+realFileName);
@@ -105,15 +105,15 @@
 		//추가부분 end//////////////////////////////////
 		//파일을 제외한 나머지 폼값을 받아온다.
 		/*
-			폼값은 request 내장객체를 통해서가 아니라 MultipartRequest
-			객체를 통해서 받는다.
+	폼값은 request 내장객체를 통해서가 아니라 MultipartRequest
+	객체를 통해서 받는다.
 		*/
 		name = mr.getParameter("name");
 		title = mr.getParameter("title");
 		String[] interArr = mr.getParameterValues("inter");
 		
 		for(String s : interArr){
-			inter.append(s+", ");
+	inter.append(s+", ");
 		}
 		////////////////////////proc3에서 추가
 		MyfileDTO dto = new MyfileDTO();
@@ -136,10 +136,8 @@
 		*/
 		request.setAttribute("errorMessage", "파일업로드오류");
 		request.getRequestDispatcher("FileUploadMain.jsp")
-			.forward(request, response);
+	.forward(request, response);
 	}
-
-
 %>
 
 
