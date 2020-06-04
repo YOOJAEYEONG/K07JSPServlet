@@ -37,14 +37,3 @@ else {
 <%
 }
 %>
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>EditProc.jsp</title>
-</head>
-<body>
-
-</body>
-</html>
