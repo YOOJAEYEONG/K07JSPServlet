@@ -18,7 +18,7 @@ request.setCharacterEncoding("UTF-8");
 	<ul>
 		<li>데이터 전송방식 : <%=request.getMethod() %></li>
 		<li>전체URL : <%=request.getRequestURL() %></li>
-		<li>도메인을 제외한 URL : <%=request.getRequestURI() %></li>
+		<li>도메인을 제외한 URI : <%=request.getRequestURI() %></li>
 		<li>프로토콜 : <%=request.getProtocol() %></li>
 		<li>서버명 : <%=request.getServerName() %></li>
 		<!--  
